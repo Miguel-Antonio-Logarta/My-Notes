@@ -1,0 +1,13 @@
+* If n1 starts with a 0, ignore the 0 and go to the next bit
+* If n2 starts with a 0, ignore the 0 and go to the next bit
+
+These test cases are wrong
+110$011 -> 110 = 011
+110$011 -> 110 = 011
+
+Expected result is 110$011 -> 110>011
+
+Put a transition state between n10 and "find 0". This transition
+state will skip the leading zeroes after the $ sign
+
+V with a line going through it means "for all"
