@@ -1,0 +1,55 @@
+char* cwd = fs_getcwd(NULL, 0);
+			if (cwd == NULL) {
+				printf("Unable to get cwd\n");
+				break;
+			}
+			printf("User @ %s", cwd);
+			cmdin = readline(" > ");
+
+// ptr and currentWorkingDirectory points to the same buffer
+	char * currentWorkingDirectory = malloc (DIRMAX_LEN +1);
+	char * ptr;	
+	ptr = fs_getcwd (currentWorkingDirectory, DIRMAX_LEN);	
+	if (ptr == NULL)			//an error occurred
+		{
+		printf ("An error occurred while trying to get the current working directory\n");
+		}
+	else
+		{
+		printf ("%s\n", ptr);
+		}
+	free (currentWorkingDirectory);
+	currentWorkingDirectory = NULL;
+	ptr = NULL;
+
+char *fs_getcwd(char *pathname, size_t size) {
+  /*
+    The getcwd() function copies an absolute path name of the current working
+    directory to the array pointed to by buf, which is of length size.This
+    function returns a null-terminated string containing an absolute path name
+    that is the current working directory of the calling process. The path name
+    is returned as the function result and via the argument buf, if present. If
+    the length of the absolute path name of the current working directory,
+    including the terminating null byte, exceeds size bytes, NULL is returned,
+    and errno is set to ERANGE; an application should check for this error, and
+    allocate a larger buffer if necessary.
+  */
+  if (g_fs_cwd == NULL) {
+    return NULL;
+  }
+
+  // Pathname is basically our buffer to fill, we also return the pointer to this buffer
+  if (pathname == NULL || size < strlen(g_fs_cwd->absolutePath) + 1) {
+    int absolutePathSize = strlen(g_fs_cwd->absolutePath) + 1;
+    pathname = realloc(pathname, absolutePathSize);
+    if (pathname == NULL) {
+      perror("Reallocation of pathname failed!");
+      exit(EXIT_FAILURE);
+    }
+    strncpy(pathname, g_fs_cwd->absolutePath, absolutePathSize);
+  } else {
+    strncpy(pathname, g_fs_cwd->absolutePath, size);
+  }
+  
+  return pathname;
+}
