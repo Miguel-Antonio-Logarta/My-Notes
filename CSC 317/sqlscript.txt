@@ -1,0 +1,198 @@
+CREATE SCHEMA "thetradingpostcopy";
+
+-- Create the users table
+CREATE TABLE `thetradingpost`.`user` (
+  `id` INT NOT NULL AUTO_INCREMENT,
+  `username` VARCHAR(64) NOT NULL,
+  `email` VARCHAR(256) NULL,
+  `phone` VARCHAR(15) NULL,
+  `password` VARCHAR(256) NOT NULL,
+  `created` DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP(),
+  `credit` VARCHAR(45) NOT NULL DEFAULT 0,
+  PRIMARY KEY (`id`),
+  UNIQUE INDEX `username_UNIQUE` (`username` ASC) VISIBLE,
+  UNIQUE INDEX `email_UNIQUE` (`email` ASC) VISIBLE,
+  UNIQUE INDEX `phone_UNIQUE` (`phone` ASC) VISIBLE);
+
+-- Create the products table
+CREATE TABLE `thetradingpost`.`product` (
+  `id` INT NOT NULL AUTO_INCREMENT,
+  `name` VARCHAR(256) NOT NULL,
+  `stock` INT NOT NULL DEFAULT 0,
+  `created` DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP(),
+  `price` DOUBLE NOT NULL,
+  PRIMARY KEY (`id`));
+
+-- Create Cart table
+CREATE TABLE `thetradingpost`.`cart` (
+  `id` INT NOT NULL AUTO_INCREMENT,
+  `product_id` INT NOT NULL,
+  `customer_id` INT NOT NULL,
+  `created` DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP(),
+  PRIMARY KEY (`id`),
+  INDEX `product_id_idx` (`product_id` ASC) VISIBLE,
+  INDEX `customer_id_idx` (`customer_id` ASC) VISIBLE,
+  CONSTRAINT `fk_cart_product_id`
+    FOREIGN KEY (`product_id`)
+    REFERENCES `thetradingpost`.`product` (`id`)
+    ON DELETE CASCADE
+    ON UPDATE CASCADE,
+  CONSTRAINT `fk_cart_customer_id`
+    FOREIGN KEY (`customer_id`)
+    REFERENCES `thetradingpost`.`user` (`id`)
+    ON DELETE CASCADE
+    ON UPDATE CASCADE);
+
+-- Create Settings table
+CREATE TABLE `thetradingpost`.`settings` (
+  `id` INT NOT NULL AUTO_INCREMENT,
+  `user_id` INT NOT NULL,
+  `dark_mode` TINYINT NOT NULL DEFAULT 0,
+  PRIMARY KEY (`id`),
+  INDEX `user_id_idx` (`user_id` ASC) VISIBLE,
+  CONSTRAINT `fk_settings_user_id`
+    FOREIGN KEY (`user_id`)
+    REFERENCES `thetradingpost`.`user` (`id`)
+    ON DELETE CASCADE
+    ON UPDATE CASCADE);
+
+-- Create Favorites table
+CREATE TABLE `thetradingpost`.`favorite` (
+  `id` INT NOT NULL AUTO_INCREMENT,
+  `customer_id` INT NOT NULL,
+  `product_id` INT NOT NULL,
+  `created_on` DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP(),
+  PRIMARY KEY (`id`),
+  INDEX `customer_id_idx` (`customer_id` ASC) VISIBLE,
+  INDEX `prooduct_id_idx` (`product_id` ASC) VISIBLE,
+  CONSTRAINT `fk_favorite_customer_id`
+    FOREIGN KEY (`customer_id`)
+    REFERENCES `thetradingpost`.`user` (`id`)
+    ON DELETE CASCADE
+    ON UPDATE CASCADE,
+  CONSTRAINT `fk_favorite_product_id`
+    FOREIGN KEY (`product_id`)
+    REFERENCES `thetradingpost`.`product` (`id`)
+    ON DELETE CASCADE
+    ON UPDATE CASCADE);
+
+-- Create Review table
+CREATE TABLE `thetradingpost`.`review` (
+  `id` INT NOT NULL AUTO_INCREMENT,
+  `product_id` INT NOT NULL,
+  `customer_id` INT NOT NULL,
+  `stars` INT NOT NULL DEFAULT 0,
+  `review` VARCHAR(2000) NULL,
+  `created` DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP(),
+  PRIMARY KEY (`id`),
+  INDEX `fk_product_id_idx` (`product_id` ASC) VISIBLE,
+  INDEX `fk_customer_id_idx` (`customer_id` ASC) VISIBLE,
+  CONSTRAINT `fk_review_product_id`
+    FOREIGN KEY (`product_id`)
+    REFERENCES `thetradingpost`.`product` (`id`)
+    ON DELETE CASCADE
+    ON UPDATE CASCADE,
+  CONSTRAINT `fk_review_customer_id`
+    FOREIGN KEY (`customer_id`)
+    REFERENCES `thetradingpost`.`user` (`id`)
+    ON DELETE CASCADE
+    ON UPDATE CASCADE);
+
+-- Create Address Table
+CREATE TABLE `thetradingpost`.`address` (
+  `id` INT NOT NULL AUTO_INCREMENT,
+  `customer_id` INT NOT NULL,
+  `address_type` ENUM('MAILING', 'BILLING') NOT NULL,
+  `first_name` VARCHAR(256) NOT NULL,
+  `last_name` VARCHAR(256) NOT NULL,
+  `country` VARCHAR(256) NOT NULL,
+  `street` VARCHAR(256) NOT NULL,
+  `apt_number` INT NULL,
+  `city` VARCHAR(256) NOT NULL,
+  `state` VARCHAR(256) NULL,
+  `zip` INT NULL,
+  PRIMARY KEY (`id`),
+  INDEX `fk_address_user_id_idx` (`customer_id` ASC) VISIBLE,
+  CONSTRAINT `fk_address_user_id`
+    FOREIGN KEY (`customer_id`)
+    REFERENCES `thetradingpost`.`user` (`id`)
+    ON DELETE CASCADE
+    ON UPDATE CASCADE);
+
+-- Create orders table
+CREATE TABLE `thetradingpost`.`order` (
+  `id` INT NOT NULL AUTO_INCREMENT,
+  `status` ENUM('PROCESSED', 'SHIPPED', 'CANCELLED', 'COMPLETED') NOT NULL DEFAULT 'PROCESSED',
+  `customer_id` INT NOT NULL,
+  `address_id` INT NOT NULL,
+  `created` DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP(),
+  PRIMARY KEY (`id`),
+  INDEX `fk_order_customer_id_idx` (`customer_id` ASC) VISIBLE,
+  CONSTRAINT `fk_order_customer_id`
+    FOREIGN KEY (`customer_id`)
+    REFERENCES `thetradingpost`.`user` (`id`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION,
+  CONSTRAINT `fk_order_address_id`
+    FOREIGN KEY (`id`)
+    REFERENCES `thetradingpost`.`address` (`id`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION);
+
+-- Create Order Item table
+CREATE TABLE `thetradingpost`.`orderitem` (
+  `id` INT NOT NULL AUTO_INCREMENT,
+  `order_id` INT NOT NULL,
+  `product_id` INT NOT NULL,
+  PRIMARY KEY (`id`),
+  INDEX `fk_orderitem_product_id_idx` (`product_id` ASC) VISIBLE,
+  INDEX `fk_orderitem_order_id_idx` (`order_id` ASC) VISIBLE,
+  CONSTRAINT `fk_orderitem_product_id`
+    FOREIGN KEY (`product_id`)
+    REFERENCES `thetradingpost`.`product` (`id`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION,
+  CONSTRAINT `fk_orderitem_order_id`
+    FOREIGN KEY (`order_id`)
+    REFERENCES `thetradingpost`.`order` (`id`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION);
+
+-- Create Gift Card table
+CREATE TABLE `thetradingpost`.`giftcard` (
+  `id` INT NOT NULL,
+  `activated` TINYINT NOT NULL DEFAULT 0,
+  `credit_remaining` DOUBLE NOT NULL,
+  PRIMARY KEY (`id`));
+
+-- Create Coupon table
+CREATE TABLE `thetradingpost`.`coupon` (
+  `id` INT NOT NULL,
+  `customer_id` INT NULL,
+  `discount_percentage` DECIMAL(4,4) UNSIGNED NOT NULL,
+  `activated` TINYINT NOT NULL DEFAULT 0,
+  PRIMARY KEY (`id`),
+  INDEX `fk_coupon_customer_id_idx` (`customer_id` ASC) VISIBLE,
+  CONSTRAINT `fk_coupon_customer_id`
+    FOREIGN KEY (`customer_id`)
+    REFERENCES `thetradingpost`.`user` (`id`)
+    ON DELETE CASCADE
+    ON UPDATE CASCADE);
+
+-- Create paymentCard table
+CREATE TABLE `thetradingpost`.`paymentcard` (
+  `id` INT NOT NULL AUTO_INCREMENT,
+  `user_id` INT NOT NULL,
+  `first_name` VARCHAR(1000) NOT NULL,
+  `last_name` VARCHAR(1000) NOT NULL,
+  `card_number` VARCHAR(1000) NOT NULL,
+  `exp` VARCHAR(1000) NOT NULL,
+  `zip_code` VARCHAR(1000) NOT NULL,
+  `billing_address_id` VARCHAR(1000) NOT NULL,
+  PRIMARY KEY (`id`),
+  INDEX `fk_payment_card_user_id_idx` (`user_id` ASC) VISIBLE,
+  CONSTRAINT `fk_payment_card_user_id`
+    FOREIGN KEY (`user_id`)
+    REFERENCES `thetradingpost`.`user` (`id`)
+    ON DELETE CASCADE
+    ON UPDATE CASCADE);

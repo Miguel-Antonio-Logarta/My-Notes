@@ -1,0 +1,25 @@
+setwd("C:/Users/potatochipse/Desktop/SFSU Classes/MATH 324/Project8/Project8")
+statistics <- read.csv("WarThunderStatistics8.csv")
+statistics
+
+NetEarnings <- statistics$Net.SL.Earnings
+
+totalMatches <- length(NetEarnings)
+totalMatches
+
+NetEarnings
+
+histCurve <- function(x) {
+  #a <- 23
+  #b <- 7500
+  #c <- 7000
+  #a*exp(-((x-b)^2)/(2*c^2))
+  -0.0000001*(x-7500)^2+23
+}
+
+hist(NetEarnings, main="Net Silver Lion Earnings Earned In War Thunder Matches", xlab="Net Silver Lion Earnings", breaks=10)
+curve(histCurve, col="red", from = -10000, to=40000, ylim=c(0, 20), add = TRUE)
+
+summary(NetEarnings)
+table(NetEarnings)
+
