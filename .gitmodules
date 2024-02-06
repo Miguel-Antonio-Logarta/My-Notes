@@ -4,3 +4,6 @@
 [submodule "csc415-assignment-1-Miguel-Antonio-Logarta"]
 	path = CSC415/csc415-assignment-1-Miguel-Antonio-Logarta
 	url = https://github.com/CSC415-2023-Fall/csc415-assignment-1-Miguel-Antonio-Logarta
+[submodule "CSC675/csc675-775-database-systems-sp24-Miguel-Antonio-Logarta"]
+	path = CSC675/csc675-775-database-systems-sp24-Miguel-Antonio-Logarta
+	url = https://github.com/sfsu-joseo/csc675-775-database-systems-sp24-Miguel-Antonio-Logarta.git
