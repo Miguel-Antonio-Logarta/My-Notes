@@ -1,0 +1,42 @@
+Professor's Name: Anthony J Souza
+Email: ajsouza@sfsu.edu
+CSC 101 Introduction to Computing
+3 units, 2.5 hours of lecture / week
+
+Office hours: Mondays and Wednesdays 11:00AM to 12:00 PM
+
+There is no A+ in this grade
+There is also no grade curve
+The book is called "Introduction to Java Programming, Y. Daniel Liang"
+
+2 Exams in the course. Midterm and final exam
+
+IntelliJ IDEA IDE 
+
+Computer Science lab 92345# is the access code
+
+We need to join the class discord Server
+Attendance is graded
+
+Lectures are recorded, but not guaranteed
+
+Late policy:
+  Submitted on time: 100%
+  After each day, grade is reduced by 2%
+  After 5 days, assignment is locked 0% grade
+
+You can appeal your grades
+  Must be 2 weeks from submission
+  Must email
+  CSC 101 Section N AssignmentName Regrade Request
+
+Teacher can detect ChatGPT, don't even try buddy
+
+Grade Weights
+* In class HW assignments: 30%
+* Projects: 25%
+* Final Exam: 15%
+* Mid-term exam: 15%
+* Class attendance: 10%
+* Class participation: 5%
+
