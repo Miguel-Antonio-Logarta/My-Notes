@@ -1,0 +1,22 @@
+Case study 5: Whose Risk is It?
+
+What is the technology?
+How is the technology used?
+Who owns the technology and the collected data?
+- The technology is an automobile insurance company's monitoring device that reports whether a driver brakes smoothly, drives infrequently, and keeps off the roads late at night.
+- These are traits that reduce the risk of accidents
+
+
+Why is it being done this way?
+Who benefits? Who is harmed?
+
+What decisions are made based on the technology?
+
+Immediate impact:
+  * Who is impacted by the decisions?
+  * What conflicts or disparities are there?
+Long-term impact:
+  * What repercussions does this technology hold beyond the immediate ones?
+
+What is the right thing to do and how do we know we have done it?
+How do we make technology fair and just?

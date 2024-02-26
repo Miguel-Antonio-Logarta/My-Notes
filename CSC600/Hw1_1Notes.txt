@@ -1,0 +1,68 @@
+* First class objects are objects that can be used in programs without
+  restrictions
+
+PROLOG
+* Symbol table is used by language proecssors to keep name, type, various internal status data
+
+
+BNF Notation
+* Consists of four parts
+  1. Set of tokens
+      - Smallest unit of syntax. They are atomic (can't be broken down)
+      - Strings of one or more characters in program text
+  2. Set of non-terminal symbols
+      - Larger pieces of syntax
+      - enclosed in brackets ex: <NP>
+      - Not strings that occur literally in program text
+      - Grammer says how they can be exapnded into strings of tokens
+  3. Start symbol
+      - Nonterminal that forms root of any parse tree for the grammar
+  4. Set of productions
+      - Tree-building rules
+      - Each production has a left-hand side, the separator (::=), and the right hand side
+      - Left hand is non-terminal
+      - Right hand is a sequence of one or more things which can be either a token or a non-terminal
+      - A production gives one possible way of building a parse tree. Permits noterminal on left to have things on the RH in ordre as its childnre on a parse tree
+
+* Examples of BNF
+  <exp>::=<exp>+<exp> | <exp>*<exp> | (<exp>) | a | b | c
+  This says that an expression can add, multiply, contain parentheses, or be a, b, or c
+  6 productions in this grammar
+
+  <if-stmt> ::= if <expr> then <stmt> <else-part>
+  <else-part> ::= else <stmt> | <empty>
+  The else-part says that it can execute a statement or allows else-part to be ommited because of <empty>
+
+EBNF Notation (Extended BNF)
+* A variation of BNF that adds additional syntax to simplify grammar chores
+* {x} means zero or more repetitions of x
+* [x] means x is optional (i.e. x | <empty)
+* () for grouping
+* | anywhere to mean a choice among alternatives
+* Qutoes around tokens, if neccessary, to distinguish from all these meta-symbols
+* Examples of EBNF
+  <if-stmt> ::= if <expr> then <stmt> [else <stmt>]
+  <stmt-list> ::= {<stmt> ;}
+  <thing-list> ::= { (<stmt> | <declaration>) ;}
+
+Syntax Diagrams
+* Easier for people to read casually
+* Harder to read precisely: What will the parse tree look like?
+* Harder to make machine readable
+
+* Look at Pascal Syntax Diagrams for a reference
+Parenthetic Notation
+
+
+
+
+Last viewed: Condensed Scheme Reference Card
+
+What to do next:
+* Select a scheme (Choose Racket)
+
+
+HW Problems:
+1.
+a. Natural numbers (1,2,3,...)
+  
