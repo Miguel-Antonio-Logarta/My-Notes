@@ -1,9 +1,0 @@
-All numbers are positive, most under 5, All of them under 10,
-the number 1 appears more often than others (3 times) while every other number appears once or twice
-
-1,3,2,1,4,17,20
-
-3 big ideas
-Probabilities are usually visualized by areas
-Statistics are used to find certainty in randomness
-Context of porblem is important in statistics

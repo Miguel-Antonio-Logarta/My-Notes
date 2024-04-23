@@ -1,6 +1,0 @@
-?qnorm
-z <- qnorm(p=0.005, mean=0, sd=1, lower.tail=FALSE)
-z
-
-?qt
-t <- qt(p=0.025, df=49, )

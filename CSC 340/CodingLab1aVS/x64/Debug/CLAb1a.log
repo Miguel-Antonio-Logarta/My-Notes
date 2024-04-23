@@ -1,9 +1,0 @@
-﻿  7_22_Lab_Vector_Palindrome.cpp
-  7_24_Lab_Mult10.cpp
-  7_26_Diamond.cpp
-  readfile.cpp
-  Generating Code...
-7_24_Lab_Mult10.obj : error LNK2005: main already defined in 7_22_Lab_Vector_Palindrome.obj
-7_26_Diamond.obj : error LNK2005: main already defined in 7_22_Lab_Vector_Palindrome.obj
-readfile.obj : error LNK2005: main already defined in 7_22_Lab_Vector_Palindrome.obj
-C:\Users\potatochipse\Desktop\SFSU Classes\CSC 340\CodingLab1aVS\x64\Debug\CLAb1a.exe : fatal error LNK1169: one or more multiply defined symbols found

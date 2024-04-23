@@ -1,5 +1,0 @@
-A) A standard turing machine: O(n^8)
-B) A multi-tape Turing Machine w/ independent heads: O(n^12)
-C) A random-access Turing Machine: O(n^4)
-D) A multi-tape universal turing machine w/ independent heads O(nlog(n))
-E) A quantum computer: It is believed to have exponential penalty. O(n^4)

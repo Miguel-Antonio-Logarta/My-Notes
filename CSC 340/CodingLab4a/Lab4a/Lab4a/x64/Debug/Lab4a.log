@@ -1,4 +1,0 @@
-﻿  main.cpp
-C:\Users\potatochipse\Desktop\SFSU Classes\CSC 340\CodingLab4a\Lab4a\Lab4a\main.cpp(56,66): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
-C:\Users\potatochipse\Desktop\SFSU Classes\CSC 340\CodingLab4a\Lab4a\Lab4a\main.cpp(47): warning C4715: 'BinarySearch': not all control paths return a value
-  Lab4a.vcxproj -> C:\Users\potatochipse\Desktop\SFSU Classes\CSC 340\CodingLab4a\Lab4a\x64\Debug\Lab4a.exe

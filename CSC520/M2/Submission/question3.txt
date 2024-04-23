@@ -1,2 +1,0 @@
-3b) Yes, because we can verify if they are true, but it's impossible to know for sure if the hint is false.
-3c)

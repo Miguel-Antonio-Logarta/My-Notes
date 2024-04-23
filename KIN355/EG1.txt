@@ -1,9 +1,0 @@
-1. My name is Miguel Antonio Dela Cruz Logarta, but you can just call me Miguel
-2. My pronouns are he/him
-4. Choose 4 prompts...
-  * What are your favorite places to eat on or near campus?
-  * What other kinds of activities or interests do you have?
-  * What is your major and what are your career goals
-  * As a student what are your strengths? What would like to improve on?
-
-Hello everybody! My name is Miguel Antonio Logarta, but you can just call me Miguel. My pronouns are he/him. I am a computer science major here at SFSU. In the future, I want to become a full stack software engineer. Right now, I'm really into web design, but I also like exploring other topics in computer science. As a student, I'd say my strengths are consistency and attention to detail. One of my favorite places to eat near the campus is a ramen restaurant called "21 Taste House." It's got the most delicious ramen I've ever tasted for an affordable price. Outside of school, I have a few hobbies like playing the piano and playing rhythm games. I'm just a beginner in piano, but I've been playing rhythm games for a couple of years. Right now I have an unhealthy/healthy obsession with Dance Dance Revolution. 
