@@ -1,0 +1,11 @@
+Ruby
+
+* supports all type of numbers (ints, polar coordintaes, infinities, rational, irrational numbers, etc...)
+* require to import a library
+
+puts "\n TIme for measuring Time.now"
+n = 10000000
+t1 = Time.now
+for i in 1 .. n
+  t2 = Time.now
+end

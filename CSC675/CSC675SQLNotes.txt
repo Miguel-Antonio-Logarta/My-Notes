@@ -1,0 +1,18 @@
+DROP DATABASE IF EXISTS PetAdoptionDB;
+CREATE DATABASE IF NOT EXISTS PetAdoptionDB;
+USE PetAdoptionDB;
+
+save database model sql file
+
+WIS: What to show in screen:
+WTF: Where to find this data
+Condition:? 
+
+SELECT FROM Track t
+JOIN Album a ON a.album_id = t.album
+WHERE a.title = "Objection overruled";
+
+Find all the customers that purchased the track "title" "Bury a Friend". Show the name of the customer and the invoice number for that track.
+SELECT Customer.name, Invoice.
+
+SELECT Album.title AS 'Album' from Album WHERE Album.year_released BETWEEN 1990 AND 1999;

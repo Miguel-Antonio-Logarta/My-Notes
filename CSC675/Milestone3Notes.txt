@@ -1,0 +1,11 @@
+Milestone 3 Notes
+
+Seat
+  - What if we want to store how long the seat is going to be occupied for? This attribute is useless if we're trying to know if it is occupied in the future, or occupied at the moment we query it
+
+Admin, Employee
+  - These have the exact same attributes! Maybe admin field only needs the employee field.
+
+Showing
+  - Showing's status string should be converted into a table that holds values "showing / not showing"
+

@@ -1,0 +1,168 @@
+English - This film's original language is in English. 
+Español - This film's original language is in Español. 
+French - This film's original language is in French. 
+German - This film's original language is in German. 
+Japanese - This film's original language is in Japanese. 
+Korean - This film's original language is in Korean. 
+
+English - This film is dubbed in English. 
+Español - This film is dubbed in Español. 
+French - This film is dubbed in French. 
+German - This film is dubbed in German. 
+Japanese - This film is dubbed in Japanese. 
+Korean - This film is dubbed in Korean. 
+
+English - This film has English subtitles.
+Español - This film has Español subtitles.
+French - This film has French subtitles.
+German - This film has German subtitles.
+Japanese - This film has Japanese subtitles.
+Korean - This film has Korean subtitles.
+
+-- This is for langauges
+INSERT INTO `MovieBookingSystem`.`Language` (`id`, `language_name`, `description`) VALUES ('1', 'English', 'This film\'s original language is in English');
+INSERT INTO `MovieBookingSystem`.`Language` (`id`, `language_name`, `description`) VALUES ('2', 'Español', 'This film\'s original language is in Español');
+INSERT INTO `MovieBookingSystem`.`Language` (`id`, `language_name`, `description`) VALUES ('3', 'French', 'This film\'s original language is in French');
+INSERT INTO `MovieBookingSystem`.`Language` (`id`, `language_name`, `description`) VALUES ('4', 'German', 'This film\'s original language is in German');
+INSERT INTO `MovieBookingSystem`.`Language` (`id`, `language_name`, `description`) VALUES ('5', 'Japanese', 'This film\'s original language is in Japanese');
+INSERT INTO `MovieBookingSystem`.`Language` (`id`, `language_name`, `description`) VALUES ('6', 'Korean', 'This film\'s original language is in Korean');
+
+-- This is for subtitles
+INSERT INTO `MovieBookingSystem`.`Subtitle` (`id`, `language_id`, `description`) VALUES ('1', '1', 'This film has English subtitles.');
+INSERT INTO `MovieBookingSystem`.`Subtitle` (`id`, `language_id`, `description`) VALUES ('2', '2', 'This film has Español subtitles.');
+INSERT INTO `MovieBookingSystem`.`Subtitle` (`id`, `language_id`, `description`) VALUES ('3', '3', 'This film has French subtitles.');
+INSERT INTO `MovieBookingSystem`.`Subtitle` (`id`, `language_id`, `description`) VALUES ('4', '4', 'This film has German subtitles.');
+INSERT INTO `MovieBookingSystem`.`Subtitle` (`id`, `language_id`, `description`) VALUES ('5', '5', 'This film has Japanese subtitles.');
+INSERT INTO `MovieBookingSystem`.`Subtitle` (`id`, `language_id`, `description`) VALUES ('6', '6', 'This film has Korean subtitles.');
+
+-- This is for dubbing
+INSERT INTO `MovieBookingSystem`.`Dubbing` (`id`, `language_id`, `description`) VALUES ('1', '1', 'This film is dubbed in English.');
+INSERT INTO `MovieBookingSystem`.`Dubbing` (`id`, `language_id`, `description`) VALUES ('2', '2', 'This film is dubbed in Español.');
+INSERT INTO `MovieBookingSystem`.`Dubbing` (`id`, `language_id`, `description`) VALUES ('3', '3', 'This film is dubbed in French.');
+INSERT INTO `MovieBookingSystem`.`Dubbing` (`id`, `language_id`, `description`) VALUES ('4', '4', 'This film is dubbed in German.');
+INSERT INTO `MovieBookingSystem`.`Dubbing` (`id`, `language_id`, `description`) VALUES ('5', '5', 'This film is dubbed in Japanese.');
+INSERT INTO `MovieBookingSystem`.`Dubbing` (`id`, `language_id`, `description`) VALUES ('6', '6', 'This film is dubbed in Korean.');
+
+-- This is for film rating
+INSERT INTO `MovieBookingSystem`.`FilmRating` (`id`, `name`, `description`) VALUES ('1', 'G', 'General Audiences. Nothing that would offend parents for viewing by children');
+INSERT INTO `MovieBookingSystem`.`FilmRating` (`id`, `name`, `description`) VALUES ('2', 'PG', 'Parental Guidance Suggested. Parents urged to give “parental guidance.” May contain some material parents might not like for their young children.');
+INSERT INTO `MovieBookingSystem`.`FilmRating` (`id`, `name`, `description`) VALUES ('3', 'PG-13', 'Parents strongly cautioned. Parents are urged to be cautious. Some material may be inappropriate for pre-teenagers');
+INSERT INTO `MovieBookingSystem`.`FilmRating` (`id`, `name`, `description`) VALUES ('4', 'R', 'Restricted. Contains some adult material. Parents are urged to learn more about the film before taking their young children with them.');
+INSERT INTO `MovieBookingSystem`.`FilmRating` (`id`, `name`, `description`) VALUES ('5', 'NC-17', 'No one 17 and under admitted. Clearly adult. Children are not admitted.');
+INSERT INTO `MovieBookingSystem`.`FilmRating` (`id`, `name`, `description`) VALUES ('6', 'Unrated', 'This film has not been rated yet by the Motion Picture Association.');
+
+-- This is for user status
+INSERT INTO `MovieBookingSystem`.`UserStatus` (`id`, `name`, `description`) VALUES ('1', 'Guest', 'This user is a guest. Only transaction information is stored for this user.');
+INSERT INTO `MovieBookingSystem`.`UserStatus` (`id`, `name`, `description`) VALUES ('2', 'Active', 'sThis user is an active member of our system. They have an account associated with them.');
+-- INSERT INTO `MovieBookingSystem`.`UserStatus` (`id`, `name`, `description`) VALUES ('3', 'Deactivated', 'This user is no longer an active member of our system. We only keep their important records when it\'s needed in the future.');
+
+-- This is for sound system
+INSERT INTO `MovieBookingSystem`.`SoundSystem` (`id`, `name`, `description`) VALUES ('1', '5.1 surround sound', 'Left Center Right (LCR) surround system.');
+INSERT INTO `MovieBookingSystem`.`SoundSystem` (`id`, `name`, `description`) VALUES ('2', '7.1 surround sound', 'Seven speakers which adds two more speakers to the 5.1 surround sound system.');
+INSERT INTO `MovieBookingSystem`.`SoundSystem` (`id`, `name`, `description`) VALUES ('3', 'Dolby', 'The Dolby Digital Surround Sound System. A powerful surround sound audio system using overhead speakers');
+INSERT INTO `MovieBookingSystem`.`SoundSystem` (`id`, `name`, `description`) VALUES ('4', 'DTS', 'Digital Theatre Sound');
+INSERT INTO `MovieBookingSystem`.`SoundSystem` (`id`, `name`, `description`) VALUES ('5', 'IMAX', 'The IMAX sound system');
+INSERT INTO `MovieBookingSystem`.`SoundSystem` (`id`, `name`, `description`) VALUES ('6', 'THX', 'The THX sound system');
+
+-- This is for the resolution
+INSERT INTO `MovieBookingSystem`.`Resolution` (`id`, `name`, `description`) VALUES ('1', 'Film', 'This movie was captured with a film camera');
+INSERT INTO `MovieBookingSystem`.`Resolution` (`id`, `name`, `description`) VALUES ('2', '2K', '2048 x 1556 resolution');
+INSERT INTO `MovieBookingSystem`.`Resolution` (`id`, `name`, `description`) VALUES ('3', '4K', '4096 x 2160 resolution');
+INSERT INTO `MovieBookingSystem`.`Resolution` (`id`, `name`, `description`) VALUES ('4', 'IMAX Laser', 'High tech projection that results in resolutions exceeding 4K resolution in comparison to other projection methods.');
+INSERT INTO `MovieBookingSystem`.`Resolution` (`id`, `name`, `description`) VALUES ('5', 'Cinemascope', 'Anamorphic widescreen. This format allows for wider projection.');
+
+-- This is for seat type
+INSERT INTO `MovieBookingSystem`.`SeatType` (`id`, `name`, `description`) VALUES ('1', 'Disabled', 'A seat that comes with amenities to assist handicapped viewers.');
+INSERT INTO `MovieBookingSystem`.`SeatType` (`id`, `name`, `description`) VALUES ('2', 'Regular', 'A regular seat.');
+-- INSERT INTO `MovieBookingSystem`.`SeatType` (`id`, `name`, `description`) VALUES ('3', 'Couple', 'A seat that can be paired with another couple\'s seat. Couple seats do not have a divider in the middle, and it can recline.');
+INSERT INTO `MovieBookingSystem`.`SeatType` (`id`, `name`, `description`) VALUES ('4', 'Reclining', 'A regular seat that can also recline.');
+
+-- This is Ticket type 
+INSERT INTO `MovieBookingSystem`.`TicketType` (`id`, `name`, `description`, `suggested_price`) VALUES ('1', 'Regular', 'Regular ticket for one.', '1299');
+INSERT INTO `MovieBookingSystem`.`TicketType` (`id`, `name`, `description`, `suggested_price`) VALUES ('2', 'Kids', 'Cheaper tickets for kids that are 8 or under.', '899');
+INSERT INTO `MovieBookingSystem`.`TicketType` (`id`, `name`, `description`, `suggested_price`) VALUES ('3', 'Senior', 'Cheaper tickets for adults that are 60 or older.', '1099');
+
+-- This is for ticket status
+INSERT INTO `MovieBookingSystem`.`TicketStatus` (`id`, `name`, `description`) VALUES ('1', 'Unsold', 'This ticket has not been bought yet');
+INSERT INTO `MovieBookingSystem`.`TicketStatus` (`id`, `name`, `description`) VALUES ('2', 'Sold', 'This ticket has been sold');
+INSERT INTO `MovieBookingSystem`.`TicketStatus` (`id`, `name`, `description`) VALUES ('3', 'Used', 'This ticket has already been redeemed and used for a movie');
+INSERT INTO `MovieBookingSystem`.`TicketStatus` (`id`, `name`, `description`) VALUES ('4', 'Expired', 'This ticket has not been bought or used but is now invalid since the showing date has already passed.');
+
+-- This is for sales
+Valentine's Day Special - A special sale for couples. Get 2 tickets for a cheaper price. 0.70 per ticket
+Veteran's Day Special - A special sale to honor those who served. 0.5 per ticket
+Movie Junkie Weekend - A sale for those who love to watch a lot of movies. 0.8 per ticket
+
+
+INSERT INTO `MovieBookingSystem`.`Sale` (`id`, `discount`, `name`, `description`) VALUES ('1', '70', 'Valentine\'s Day Special', 'A special sale for couples.');
+INSERT INTO `MovieBookingSystem`.`Sale` (`id`, `discount`, `name`, `description`) VALUES ('2', '50', 'Veteran\'s Day Special', 'A special sale to honor those who served.');
+INSERT INTO `MovieBookingSystem`.`Sale` (`id`, `discount`, `name`, `description`) VALUES ('3', '80', 'Movie Junkie Weekend', 'A sale for those who love to watch a lot of movies.');
+
+-- This is for seats. No time to add a name
+
+-- th 1. 14 couples, 2 disabled
+INSERT INTO `MovieBookingSystem`.`Seat` (`id`, `theatre_id`, `is_occupied`, `seat_type_id`) VALUES ('1', '1', '0', '3');
+INSERT INTO `MovieBookingSystem`.`Seat` (`id`, `theatre_id`, `is_occupied`, `seat_type_id`) VALUES ('2', '1', '0', '3');
+INSERT INTO `MovieBookingSystem`.`Seat` (`id`, `theatre_id`, `is_occupied`, `seat_type_id`) VALUES ('3', '1', '0', '3');
+INSERT INTO `MovieBookingSystem`.`Seat` (`id`, `theatre_id`, `is_occupied`, `seat_type_id`) VALUES ('4', '1', '0', '3');
+INSERT INTO `MovieBookingSystem`.`Seat` (`id`, `theatre_id`, `is_occupied`, `seat_type_id`) VALUES ('5', '1', '0', '3');
+INSERT INTO `MovieBookingSystem`.`Seat` (`id`, `theatre_id`, `is_occupied`, `seat_type_id`) VALUES ('6', '1', '0', '3');
+INSERT INTO `MovieBookingSystem`.`Seat` (`id`, `theatre_id`, `is_occupied`, `seat_type_id`) VALUES ('7', '1', '0', '3');
+INSERT INTO `MovieBookingSystem`.`Seat` (`id`, `theatre_id`, `is_occupied`, `seat_type_id`) VALUES ('8', '1', '0', '3');
+INSERT INTO `MovieBookingSystem`.`Seat` (`id`, `theatre_id`, `is_occupied`, `seat_type_id`) VALUES ('9', '1', '0', '3');
+INSERT INTO `MovieBookingSystem`.`Seat` (`id`, `theatre_id`, `is_occupied`, `seat_type_id`) VALUES ('10', '1', '0', '3');
+INSERT INTO `MovieBookingSystem`.`Seat` (`id`, `theatre_id`, `is_occupied`, `seat_type_id`) VALUES ('11', '1', '0', '3');
+INSERT INTO `MovieBookingSystem`.`Seat` (`id`, `theatre_id`, `is_occupied`, `seat_type_id`) VALUES ('12', '1', '0', '3');
+INSERT INTO `MovieBookingSystem`.`Seat` (`id`, `theatre_id`, `is_occupied`, `seat_type_id`) VALUES ('13', '1', '0', '3');
+INSERT INTO `MovieBookingSystem`.`Seat` (`id`, `theatre_id`, `is_occupied`, `seat_type_id`) VALUES ('14', '1', '0', '3');
+INSERT INTO `MovieBookingSystem`.`Seat` (`id`, `theatre_id`, `is_occupied`, `seat_type_id`) VALUES ('15', '1', '0', '1');
+INSERT INTO `MovieBookingSystem`.`Seat` (`id`, `theatre_id`, `is_occupied`, `seat_type_id`) VALUES ('16', '1', '0', '1');
+
+-- Threatre Room 2 - 30 seats - 2 disabled seats. 28 regular seats <- regular theatre
+INSERT INTO `MovieBookingSystem`.`Seat` (`id`, `theatre_id`, `is_occupied`, `seat_type_id`) VALUES ('17', '2', '0', '2');
+INSERT INTO `MovieBookingSystem`.`Seat` (`id`, `theatre_id`, `is_occupied`, `seat_type_id`) VALUES ('18', '2', '0', '2');
+INSERT INTO `MovieBookingSystem`.`Seat` (`id`, `theatre_id`, `is_occupied`, `seat_type_id`) VALUES ('19', '2', '0', '2');
+INSERT INTO `MovieBookingSystem`.`Seat` (`id`, `theatre_id`, `is_occupied`, `seat_type_id`) VALUES ('20', '2', '0', '2');
+INSERT INTO `MovieBookingSystem`.`Seat` (`id`, `theatre_id`, `is_occupied`, `seat_type_id`) VALUES ('21', '2', '0', '2');
+INSERT INTO `MovieBookingSystem`.`Seat` (`id`, `theatre_id`, `is_occupied`, `seat_type_id`) VALUES ('22', '2', '0', '2');
+INSERT INTO `MovieBookingSystem`.`Seat` (`id`, `theatre_id`, `is_occupied`, `seat_type_id`) VALUES ('23', '2', '0', '2');
+INSERT INTO `MovieBookingSystem`.`Seat` (`id`, `theatre_id`, `is_occupied`, `seat_type_id`) VALUES ('24', '2', '0', '2');
+INSERT INTO `MovieBookingSystem`.`Seat` (`id`, `theatre_id`, `is_occupied`, `seat_type_id`) VALUES ('25', '2', '0', '2');
+INSERT INTO `MovieBookingSystem`.`Seat` (`id`, `theatre_id`, `is_occupied`, `seat_type_id`) VALUES ('26', '2', '0', '2');
+INSERT INTO `MovieBookingSystem`.`Seat` (`id`, `theatre_id`, `is_occupied`, `seat_type_id`) VALUES ('27', '2', '0', '2');
+INSERT INTO `MovieBookingSystem`.`Seat` (`id`, `theatre_id`, `is_occupied`, `seat_type_id`) VALUES ('28', '2', '0', '2');
+INSERT INTO `MovieBookingSystem`.`Seat` (`id`, `theatre_id`, `is_occupied`, `seat_type_id`) VALUES ('29', '2', '0', '2');
+INSERT INTO `MovieBookingSystem`.`Seat` (`id`, `theatre_id`, `is_occupied`, `seat_type_id`) VALUES ('30', '2', '0', '2');
+INSERT INTO `MovieBookingSystem`.`Seat` (`id`, `theatre_id`, `is_occupied`, `seat_type_id`) VALUES ('31', '2', '0', '2');
+INSERT INTO `MovieBookingSystem`.`Seat` (`id`, `theatre_id`, `is_occupied`, `seat_type_id`) VALUES ('32', '2', '0', '2');
+INSERT INTO `MovieBookingSystem`.`Seat` (`id`, `theatre_id`, `is_occupied`, `seat_type_id`) VALUES ('33', '2', '0', '2');
+INSERT INTO `MovieBookingSystem`.`Seat` (`id`, `theatre_id`, `is_occupied`, `seat_type_id`) VALUES ('34', '2', '0', '2');
+INSERT INTO `MovieBookingSystem`.`Seat` (`id`, `theatre_id`, `is_occupied`, `seat_type_id`) VALUES ('35', '2', '0', '2');
+INSERT INTO `MovieBookingSystem`.`Seat` (`id`, `theatre_id`, `is_occupied`, `seat_type_id`) VALUES ('36', '2', '0', '2');
+INSERT INTO `MovieBookingSystem`.`Seat` (`id`, `theatre_id`, `is_occupied`, `seat_type_id`) VALUES ('37', '2', '0', '2');
+INSERT INTO `MovieBookingSystem`.`Seat` (`id`, `theatre_id`, `is_occupied`, `seat_type_id`) VALUES ('38', '2', '0', '2');
+INSERT INTO `MovieBookingSystem`.`Seat` (`id`, `theatre_id`, `is_occupied`, `seat_type_id`) VALUES ('39', '2', '0', '2');
+INSERT INTO `MovieBookingSystem`.`Seat` (`id`, `theatre_id`, `is_occupied`, `seat_type_id`) VALUES ('40', '2', '0', '2');
+INSERT INTO `MovieBookingSystem`.`Seat` (`id`, `theatre_id`, `is_occupied`, `seat_type_id`) VALUES ('41', '2', '0', '2');
+INSERT INTO `MovieBookingSystem`.`Seat` (`id`, `theatre_id`, `is_occupied`, `seat_type_id`) VALUES ('42', '2', '0', '2');
+INSERT INTO `MovieBookingSystem`.`Seat` (`id`, `theatre_id`, `is_occupied`, `seat_type_id`) VALUES ('43', '2', '0', '2');
+INSERT INTO `MovieBookingSystem`.`Seat` (`id`, `theatre_id`, `is_occupied`, `seat_type_id`) VALUES ('44', '2', '0', '2');
+INSERT INTO `MovieBookingSystem`.`Seat` (`id`, `theatre_id`, `is_occupied`, `seat_type_id`) VALUES ('45', '2', '0', '1');
+INSERT INTO `MovieBookingSystem`.`Seat` (`id`, `theatre_id`, `is_occupied`, `seat_type_id`) VALUES ('46', '2', '0', '1');
+
+-- Threatre Room 3 - 15 seats - 1 disabled seat. 14 reclining seats <- luxury theatre
+INSERT INTO `MovieBookingSystem`.`Seat` (`id`, `theatre_id`, `is_occupied`, `seat_type_id`) VALUES ('47', '3', '0', '4');
+INSERT INTO `MovieBookingSystem`.`Seat` (`id`, `theatre_id`, `is_occupied`, `seat_type_id`) VALUES ('48', '3', '0', '4');
+INSERT INTO `MovieBookingSystem`.`Seat` (`id`, `theatre_id`, `is_occupied`, `seat_type_id`) VALUES ('49', '3', '0', '4');
+INSERT INTO `MovieBookingSystem`.`Seat` (`id`, `theatre_id`, `is_occupied`, `seat_type_id`) VALUES ('50', '3', '0', '4');
+INSERT INTO `MovieBookingSystem`.`Seat` (`id`, `theatre_id`, `is_occupied`, `seat_type_id`) VALUES ('51', '3', '0', '4');
+INSERT INTO `MovieBookingSystem`.`Seat` (`id`, `theatre_id`, `is_occupied`, `seat_type_id`) VALUES ('52', '3', '0', '4');
+INSERT INTO `MovieBookingSystem`.`Seat` (`id`, `theatre_id`, `is_occupied`, `seat_type_id`) VALUES ('53', '3', '0', '4');
+INSERT INTO `MovieBookingSystem`.`Seat` (`id`, `theatre_id`, `is_occupied`, `seat_type_id`) VALUES ('54', '3', '0', '4');
+INSERT INTO `MovieBookingSystem`.`Seat` (`id`, `theatre_id`, `is_occupied`, `seat_type_id`) VALUES ('55', '3', '0', '4');
+INSERT INTO `MovieBookingSystem`.`Seat` (`id`, `theatre_id`, `is_occupied`, `seat_type_id`) VALUES ('56', '3', '0', '4');
+INSERT INTO `MovieBookingSystem`.`Seat` (`id`, `theatre_id`, `is_occupied`, `seat_type_id`) VALUES ('57', '3', '0', '4');
+INSERT INTO `MovieBookingSystem`.`Seat` (`id`, `theatre_id`, `is_occupied`, `seat_type_id`) VALUES ('58', '3', '0', '4');
+INSERT INTO `MovieBookingSystem`.`Seat` (`id`, `theatre_id`, `is_occupied`, `seat_type_id`) VALUES ('59', '3', '0', '4');
+INSERT INTO `MovieBookingSystem`.`Seat` (`id`, `theatre_id`, `is_occupied`, `seat_type_id`) VALUES ('60', '3', '0', '4');
+INSERT INTO `MovieBookingSystem`.`Seat` (`id`, `theatre_id`, `is_occupied`, `seat_type_id`) VALUES ('61', '3', '0', '1');
