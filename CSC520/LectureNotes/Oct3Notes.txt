@@ -1,0 +1,43 @@
+Polycheck
+* A program to check whether a computer program can check that a solution
+  is correct in polynomial time.
+
+The program below is a PolyCheck. It verifies a proposed 
+solution in polynomial time
+I is instance of program
+S is proposed solution
+H is hint (not used by program)
+
+def verifyFactor(I, S, H):
+  if S == 'no': return 'unsure'
+  M = int(I); m = int(S)
+  if m >= 2 and m <=M and M % m == 0:
+    # m is a nontrivial factor of M
+    return 'correct'
+  else:
+    # m is not nontrivial factor of M
+    return 'unsure'
+
+  It says unsure because we cannot verify every instance where the 
+  program is incorrect. We need to solve this in polynomial time.
+
+  PolyCheck can only return 'correct' or 'unsure'
+
+Polycheck can only return 'unsure' or 'correct'.
+Every positive instance can be verified
+Negative instances can never be verified
+Incorrect solutions can never be verified.
+
+---------------
+verifyAdd(I, S, H) is a verifier, but it does not execute the program
+in polynomial time. Remember, it is not the value that the input represents, 
+   but rather the string length. For every new digit we add to the length,
+   the run time increases by 10 times. Therefore, this is not a good verifier.
+---------------
+
+P is the class of decision problems that can be solved by a deterministic polynomial time algorithm
+NP is the class of decision problems that can be solved by a nondeterministic polynomial time algorithm
+if F E P, then F E NP
+if F E NP, is F E P?
+The answer is no. Just because F can be solved by nondeterministic polynomial time, doesn't mean that it is also a problem that can be solved by a deterministic poly time algo.
+

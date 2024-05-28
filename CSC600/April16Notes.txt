@@ -1,0 +1,9 @@
+Differences between Racket and TI Scheme
+
+TI Scheme
+(- 3) How to do minus 3
+(* 3 1.) how to make a float
+
+NIL, nil, *the-non-printing-object* in TI Scheme
+"" to display <empty> set in Racket
+null? in Racket

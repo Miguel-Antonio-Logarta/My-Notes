@@ -1,0 +1,28 @@
+Functional Requirements:
+1. User:
+  1.1 A user shall have many roles
+  1.2 A user shall create at most one account
+
+2. Account:
+  2.1 An account shall have at least one profile
+  2.2 An account is owned by only one user
+
+3. Roles
+  3.1 Roles are admin or customers
+
+4. Customer
+  4.1 A customer has created an account.
+  4.2 A customer shall login into many accounts
+  4.3 A customer shall order many products
+  4.4 A customer shall review many products
+
+5. Product
+  5.1 A product can be ordered by many customers
+  5.2 A product can be reviewd by many customers
+
+Schemas ----------------------------------------
+1. User (strong):
+  user_id (numeric, strong key)
+  email (alphanumeric, composite)
+  DOB (alphanumeric, DOB)
+  age (None, derived)

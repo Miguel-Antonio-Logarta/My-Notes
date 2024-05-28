@@ -1,0 +1,18 @@
+First-class Objects <- important concept will show up in exam``
+- An object is a first-class if it can be used in programs without restrictions
+- May be expressed as an anonymous literal vlaue (constant)
+- May be stored in variables, data structures, compared to other objects, passed as a parameter, returned as a result,
+- Created or destroyed at run time
+- Readable and printable
+
+LISP and Scheme
+- Small powerful basic concepts
+- Everything is first class
+- Recursive programs based on tail recursion
+- Nested functions
+- Each control structure returns a vvalue
+- No side effects
+- Anonymous functions
+- Args are mandatory, optional or misisng
+- Functions can be made with multiple levels of composition and arguments
+- Functions can be returned from expressions and other functions. (functions can return functions)

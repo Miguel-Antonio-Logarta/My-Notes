@@ -1,0 +1,16 @@
+Exercise -----------------------------------------------------------------------
+* Imagine you work for Game Company X who are making a text-based Game
+  which lets the player explore a fictional world and seek or find a hidden
+  item
+
+HOUSE <- location
+Welcome!
+You are in a small house, there is a candle on the table.
+The DOOR leads outside.
+
+The DOOR leads OUTSIDE
+
+> DOOR
+
+OUTSIDE <-location
+It's bright...

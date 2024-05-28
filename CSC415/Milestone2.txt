@@ -1,0 +1,52 @@
+fs_setcwd
+- Set current directory to directory inputted by the user
+- If relative path given, search for directory in current directory entry
+- If absolute, look through root directory and recursively navigate file tree
+- If not found, send error, else set cwd 
+
+fs_getcwd
+- Output current directory entry
+
+fs_isFile
+- Read directory entry and return if is_directory bit is 1 or 0
+
+fs_isDir
+- Parse pathname and check if it is a valid pathname for example 
+/boot/bin/etc is a valid pathname
+/home/desktop/"this is a file.txt" is a valid pathname
+/home/des$to/ is not a valid pathames
+Rules:
+name of file/directory is under 31 characters including the null terminating character
+spaces not allowed, unless it is enclosed in parentheses
+special characters are not allowed. It should only be alphanumeric with . allowed
+filesnames cannot end with space or dot. 
+Filenames cannot have a slash / as part of their name
+etc...
+
+fs_mkdir
+b_write() a new directory entry. 
+Check if the current working directory already has a folder / file with the same name
+
+fs_opendir
+check if directory exists in current working directory
+if it does, set current working directory to the selected directory
+else send an error
+
+fs_readdir
+read the contents of a directory. Output files and subdirectories of a directory
+
+fs_closedir
+close current directory and go up to parent directory, unless the cwd directory is already root
+
+fs_stat
+Send FAT file statistics
+
+And optimally complete
+fs_delete
+if it's a file, delete it from directory entry, so pointer is lost forever
+else tell them "This is a folder, did you mean to call "rmdir"?"
+
+fs_rmdir
+If it is a directory, recursively delete every folder and file inside of the directory
+	Optionally give them a warning if you want
+else tell them "This is a file, did you mean to call "delete"?"

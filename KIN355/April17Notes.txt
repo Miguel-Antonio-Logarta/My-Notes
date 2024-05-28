@@ -1,0 +1,4 @@
+How to code data to get keyword responses in excel
+
+Create a column that are marked codes
+Put in a T or an M for (Time, Motivation)

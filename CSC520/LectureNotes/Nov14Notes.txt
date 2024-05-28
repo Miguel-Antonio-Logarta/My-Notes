@@ -1,0 +1,55 @@
+11/15 First meeting for SA project
+11/21 Fall break
+12/2 L1114a and b due. This is worth 15 extra credit points. Do this!
+12/3 HW #3 due
+12/5 Midterm #3
+12/12 Final Exam
+
+How to create a JFLAP PDA
+
+|A| = all possible languages
+|D|, |C|, |R| = all computable langauges
+
+Orthogonal 
+Diagonolization
+
+https://en.wikipedia.org/wiki/Context-free_grammar
+https://en.wikipedia.org/wiki/Context-free_language
+
+Context free means that the symbol on the LHS of the rewrite can be replaced by the RHS of the rewrite rule
+*where ever it occurs* in the sentenial form
+
+Σ = {C,A,G,T}
+
+G, a grammar, specified briefly as two re-write rules
+v is the input and the arrow is the result. Below are the rules:
+v -> CvG | ε 
+v -> ε
+
+so when given v, we could surround it with C and G, or just replace  it epsilon
+
+v -> CvG -> CεG -> CG
+     CCvGG
+
+As a result, we get the statement
+L(G) = { w : w = C^nG^n, n>=0}
+
+Here is means that when we get the input w, we get a resulting string of C's and G's. The amount of C's and G's
+that appear is represented by n. There cannot be a negative amount of C's and G's hence n>=0
+
+Example 2
+G = {{S}, {a, b}, {ε}}
+rule: S -> aSa | bSb | ε
+
+S -> bSb -> baSab -> baaSaab -> baabSbaab -> ...
+
+From the rule, we see that whatever string we get on the left of S, the right of S is the reverse of the left
+S can also be replaced with epsilon, so basically delete S if you want.
+
+At the end, we get a palidrome.
+
+L(G2) = { w : w }
+
+Pushdown Automaton (PDA)
+https://en.wikipedia.org/wiki/Pushdown_automaton
+
