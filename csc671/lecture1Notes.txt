@@ -1,0 +1,8 @@
+Core idea of machine learning:
+* Write algos depending on params whose values are left unspecified
+* Optimize parameters to work on examples
+
+What is deep learning?
+  Constructing neural networks from parameters (parameterized functional modules)
+  Train from examples
+  Gradient-based optimization
