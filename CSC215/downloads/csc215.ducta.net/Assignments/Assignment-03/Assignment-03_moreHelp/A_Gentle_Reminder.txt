@@ -1,0 +1,12 @@
+Hello, Team,
+
+We want to reread the Grader's Grading Expectations and Policies to avoid losing points. This important document is in the File Manager/Assignments directory. 
+
+The other ducuments, as we discussed many times in class, are also there to help us: the Guidelines for All Assignments, the Assignment Report Template, and etc. 
+
+We want to start all assignments early and reach out to the grader on time for clarification. 
+
+Happy programming and have fun! 
+		
+Best,
+Duc

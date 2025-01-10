@@ -1,0 +1,112 @@
+\documentclass{article}
+
+\usepackage{fancyhdr}
+
+\usepackage{textcomp}
+\usepackage{enumitem}
+\usepackage{amsthm, amssymb,amsmath}
+\usepackage{graphicx}
+\usepackage{tabto}
+\title{MATH 425 Fall 2024 Homework 4}
+\date{Due: Sunday Oct 13, 2024}
+\author{Miguel Antonio Logarta}
+
+\pagestyle{fancy}
+
+\fancyhead[L]{Math 425 Homework 4}  % Left side of the header
+\fancyhead[C]{Fall 2024}  % Center of the header
+\fancyhead[R]{Due: Sunday Oct 13, 2024}  % Right side of the header (current date)
+
+
+\newcommand\aug{\fboxsep=-\fboxrule\!\!\!\fbox{\strut}\!\!\!}
+
+\begin{document}
+
+
+\maketitle  % This command generates the title page.
+\thispagestyle{fancy}
+
+\begin{enumerate}
+    \item[1a)] We know that $Q^TQ = QQ^T = I_n$\\
+    If $A$ and $B$ and orthogonal $n \times n$ matrices, we need to prove that $AB = C$ where $C$ is an orthogonal matrix.\\
+    Since $C$ is orthogonal, $C^TC = CC^T = I_n$ 
+    We substitute $C$ with $AB$ to get: \\
+    $(AB)^T(AB) = I_n$\\
+    $(B^TA^T)(AB) = I_n$ using transpose property $(AB)^T = (B^TA^T)$\\
+    $B^T(A^TA)B = I_n$\\
+    $B^TI_nB = I_n$\\
+    $B^TB = I_n$\\
+    Since B is orthogonal and $C^TC = B^TB = I_n$, C is an orthogonal matrix.
+    
+    \item[1b)] We know that if Q is orthogonal, $Q^TQ = QQ^T = I_n$\\
+    To prove that $Q^T$ is also orthogonal, we need to show that $(Q^T)^TQ^T = I_n$\\
+    $(Q^T)^T = Q$ using the transpose property $(A^T)^T = A$\\
+    $(Q^T)^TQ^T = QQ^T$ \\
+    Since $QQ^T = Q^TQ = I_n$, $Q^T$ is also orthogonal.
+    \item[1c)]
+    $$
+    \begin{pmatrix}
+    \cos\theta & -\sin\theta \\
+    \sin\theta & \cos\theta
+    \end{pmatrix}^T
+    \begin{pmatrix}
+    \cos\theta & -\sin\theta \\
+    \sin\theta & \cos\theta
+    \end{pmatrix}
+    = I_n
+    $$
+    $$
+    \begin{pmatrix}
+    \cos\theta & \sin\theta \\
+    -\sin\theta & \cos\theta
+    \end{pmatrix}
+    \begin{pmatrix}
+    \cos\theta & -\sin\theta \\
+    \sin\theta & \cos\theta
+    \end{pmatrix} = I_n
+    $$
+    $$
+    \begin{pmatrix}
+        \cos\theta\cos\theta + \sin\theta\sin\theta & -\cos\theta\cos\theta + \sin\theta\sin\theta \\
+        -\sin\theta\cos\theta + \cos\theta\sin\theta & \sin\theta\sin\theta + \cos\theta\cos\theta
+    \end{pmatrix} = I_n
+    $$
+    $$
+    \begin{pmatrix}
+        \sin^2\theta + \cos^2\theta & \sin\theta\cos\theta - \sin\theta\cos\theta \\
+        \sin\theta\cos\theta - \sin\theta\cos\theta & \sin^2\theta + \cos^2\theta
+    \end{pmatrix} = I_n
+    $$
+    
+    Using trigonometric identity $\sin^2\theta + \cos^2\theta = 1$, we get
+    
+    $$
+    \begin{pmatrix}
+        1 & 0 \\
+        0 & 1 
+    \end{pmatrix} = I_n
+    $$
+
+    Showing that $\begin{pmatrix}
+        \cos\theta & -\sin\theta \\
+        \sin\theta & \cos\theta
+        \end{pmatrix}$
+    is a orthogonal matrix.
+    This matrix is special in that you can use it to rotate a vector without changing its magnitude and angle. We can also see that it has an orthonormal basis since the norm of each column is always 1.
+    
+    \item[1d)] We know that the euclidean norm of a vector $\textbf{v}$ is just the square root of the dot product of itself multiplied by itself.
+    $$||\textbf{v}|| = \sqrt{\textbf{v} \cdot \textbf{v}}$$
+    We also know that the inner product of two vectors is the is just a matrix product of a row and column vector.
+    $$\langle\textbf{v}\,,\textbf{w}\rangle = \textbf{v}^T\textbf{w} = \textbf{v} \cdot \textbf{w} $$
+    From this, we get
+    $$||\textbf{x}|| = \sqrt{\textbf{x} \cdot \textbf{x}} = \sqrt{\langle\textbf{x},,\textbf{x}\rangle} = \sqrt{\textbf{x}^T\textbf{x}}$$
+    $$||Q\textbf{x}|| = \sqrt{1} = \sqrt{(Q\textbf{x})^T(Q\textbf{x})}$$
+    $$= \sqrt{\textbf{x}^T(Q^TQ)\textbf{x}}\text{\hspace{10mm} using $(AB)^T = B^TA^T$}$$
+    $$= \sqrt{\textbf{x}^TI_n\textbf{x}}\text{\hspace{10mm} since $Q^TQ = I_n$}$$  
+    $$= \sqrt{\textbf{x}^T\textbf{x}} = ||\textbf{x}||$$
+    This shows that $||\textbf{x}|| = ||Q\textbf{x}||$ for any $\textbf{x} \in \mathbb{R}^n$
+        
+    \item[2c]
+    From my results in Matlab, I find that QR factorization is slightly more accurate in solving a Hilbert matrix in comparison to my implementation of Gaussian Elimination from Homework 1. My Gaussian Elimination algorithm does not include partial pivoting which may be a big factor as to why it is not accurate. From my research online, I found that QR factorization is indeed more stable and should be preferred when accuracy is important. However, even though Gaussian Elimination may be faster as there are less operations overall, the inaccuracy (even with partial pivoting) doesn't make Gaussian Elimination worth using.
+\end{enumerate}
+\end{document}

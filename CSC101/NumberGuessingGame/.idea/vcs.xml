@@ -4,6 +4,7 @@
     <mapping directory="$PROJECT_DIR$/../.." vcs="Git" />
     <mapping directory="$PROJECT_DIR$/../../CSC415/csc415-assignment-1-Miguel-Antonio-Logarta" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/../../CSC415/csc415-assignment2-bufferandstruct-Miguel-Antonio-Logarta" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/../../CSC648/team03/csc648-01-fa24-csc648-01-fa24-team03" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/../../CSC675/csc675-775-database-systems-sp24-Miguel-Antonio-Logarta" vcs="Git" />
   </component>
 </project>

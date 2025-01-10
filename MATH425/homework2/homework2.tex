@@ -1,0 +1,35 @@
+\documentclass{article}
+
+\usepackage{fancyhdr}
+\usepackage{amsmath}
+
+\title{CSC MATH 425 Homework 2}
+\date{Due: Saturday Sep 21, 2024}
+\author{Miguel Antonio Logarta}
+
+\pagestyle{fancy}
+
+\fancyhead[L]{SFSU, MATH 425}  % Left side of the header
+\fancyhead[C]{Fall 2024}  % Center of the header
+\fancyhead[R]{Due: Saturday Sep 21, 2024}  % Right side of the header (current date)
+
+\begin{document}
+
+\maketitle  % This command generates the title page.
+
+\begin{itemize}
+\item[1.c] Yes, my function \textit{myRank()} computes the rank of \textit{A} to be 3.
+\item[2.a] An example of a $4 \times 4$ strictly \underline{column} diagonally dominant matrix is:$$\begin{bmatrix} 3&1&1&0 \\ 2&4&1&0 \\ 0&1&5&2 \\ 1&1&3&6\end{bmatrix}$$In this matrix, the magnitude of every diagonal entry is greater than the sum of every non-diagonal entry in their column.
+\item[2.b]Using this inequality, $${\displaystyle |a_{jj}|> \sum ^{n}_{i\neq j}|a_{ij}|}$$ We can show that Gaussian elimination with partial pivoting on the array from 2.a will have zero row interchanges. When we use partial pivoting, the algorithm looks for values below $a_{jj}$ and finds that there are no rows whose value is greater than the current pivot. No row interchanges occur, and algorithm moves on to the next diagonal.
+
+\begin{itemize}
+    \item[1.] In the first column we see that:\newline $a_{11} > a_{12}$, $a_{11} > a_{13}$, $a_{11} > a_{14}$. \newline No row interchanges occur.
+    \item[2.] In the second column we see that:\newline $a_{21} > a_{22}$, $a_{21} > a_{23}$, $a_{21} > a_{24}$. \newline No row interchanges occur. 
+    \item[3.] Third column:\newline $a_{31} > a_{32}$, $a_{31} > a_{33}$, $a_{31} > a_{34}$. \newline No row interchanges occur.
+    \item[4.] Fourth column:\newline $a_{41} > a_{42}$, $a_{41} > a_{43}$, $a_{41} > a_{44}$. \newline No row interchanges occur.
+\end{itemize}
+
+\item[2.c] This example is used in Matlab and the results indeed show that zero row interchanges have occured. 
+\end{itemize}
+
+\end{document}

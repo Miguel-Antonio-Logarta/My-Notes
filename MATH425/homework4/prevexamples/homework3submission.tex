@@ -1,0 +1,122 @@
+\documentclass{article}
+
+\usepackage{fancyhdr}
+
+\usepackage{textcomp}
+\usepackage{enumitem}
+\usepackage{amsthm, amssymb,amsmath}
+\usepackage{graphicx}
+\title{MATH 425 Fall 2024 Homework 3}
+\date{Due: Tuesday Oct 5, at 4:00 PM, 2024}
+\author{Miguel Antonio Logarta}
+
+\pagestyle{fancy}
+
+\fancyhead[L]{Math 425 Homework 3}  % Left side of the header
+\fancyhead[C]{Fall 2024}  % Center of the header
+\fancyhead[R]{Due: Saturday Oct 5, 2024}  % Right side of the header (current date)
+
+
+\newcommand\aug{\fboxsep=-\fboxrule\!\!\!\fbox{\strut}\!\!\!}
+
+\begin{document}
+
+\maketitle  % This command generates the title page.
+
+\begin{enumerate}
+    \item[1a)] Let 
+    $\textbf{v} = \begin{pmatrix}
+        {v}_1 \\
+        {v}_2 \\
+        \vdots \\
+        {v}_m \\
+    \end{pmatrix}$ 
+    and 
+    $\textbf{w}= \begin{pmatrix}
+        {w}_1 \\
+        {w}_2 \\
+        \vdots \\
+        {w}_n \\
+    \end{pmatrix}$
+    \\
+    Then $\textbf{v}\textbf{w}^T = 
+    \begin{pmatrix}
+        {v}_1 \\
+        {v}_2 \\
+        \vdots \\
+        {v}_m \\
+    \end{pmatrix}
+    \begin{pmatrix}
+        {w}_1 & {w}_2 & \dots & {w}_n
+    \end{pmatrix} = 
+    \begin{pmatrix}
+        {v}_1{w}_1 & {v}_1{w}_2 & \dots & {v}_1{w}_n \\
+        {v}_2{w}_1 & {v}_2{w}_2 & \dots & {v}_2{w}_n \\
+        \vdots & \vdots & \ddots & \vdots \\
+        {v}_m{w}_1 & {v}_m{w}_2 & \dots & {v}_m{w}_n \\
+    \end{pmatrix}
+    $
+    We can see that every row after the first can be cancelled out using Gaussian Elimination
+    $$ {R}_1 - \frac{{v}_1}{{v}_2}{R}_2 \rightarrow {R}_2$$
+    $${R}_1 - \frac{{v}_1}{{v}_3}{R}_3 \rightarrow {R}_3$$
+    $${R}_1 - \frac{{v}_1}{{v}_m}{R}_m \rightarrow {R}_m$$
+    We end up with a matrix like the following...
+    $$
+    \begin{pmatrix}
+        {v}_1{w}_1 & {v}_1{w}_2 & \dots & {v}_1{w}_n \\
+        0 & 0 & \dots & 0 \\
+        \vdots & \vdots & \ddots & \vdots \\
+        0 & 0 & \dots & 0 \\
+    \end{pmatrix}
+    $$
+    Which is a matrix of rank 1.
+    \item[1b)]
+    \item[2)] Yes, vector 
+    $\left( \begin{array}{r} 3 \\ 0 \\ -1 \\ -2 \end{array} \right)$
+     is a linear combination of 
+    $ \left( \begin{array}{r} 1 \\ 2 \\ 0 \\ 1 \end{array} \right), \quad   
+    \left( \begin{array}{r} 0 \\ -1 \\ 3 \\ 0 \end{array} \right), 
+    \quad\left( \begin{array}{r} 2 \\ 0 \\ 1 \\ -1\end{array} \right)$. 
+    \\\\To find if the vector is a linear combination, we first create an augmented matrix that combines all the column vectors. 
+    $$
+    V =
+    \begin{pmatrix}
+    1 & 0 & 2 & \aug & 3\\
+    2 & -1 & 0 & \aug & 0\\
+    0 & 3 & 1 & \aug & -1\\
+    1 & 0 & -1 & \aug & -2\\
+    \end{pmatrix}
+    $$
+
+    Using MATLAB, we then call rref(V) to get the reduced row echelon form of the matrix
+
+    $$
+    rref(V) =
+    \begin{pmatrix}
+    1 & 0 & 0 & \aug & 0\\
+    0 & 1 & 0 & \aug & 0\\
+    0 & 0 & 1 & \aug & 0\\
+    0 & 0 & 0 & \aug & 1\\
+    \end{pmatrix}
+    $$
+
+    We can clearly see from the result of
+    rref(V) that there is no zero row. This means that there is at least one solution
+    for our original vector, making it a valid linear combination from our original question.
+
+    \item[3a)] Yes, however the vectors ${\textbf{v}}_1$, ${\textbf{v}}_2$, ${\textbf{v}}_3$ only span a plane in $\mathbb{R}^3$, not the entirety of $\mathbb{R}^3$. This is because if we combine these column vectors into a matrix, then take the reduced row echelon form, we get
+    $$
+    \begin{pmatrix}
+        1 & 0 & -1 & 1\\
+        0 & 1 & 1 & 0\\
+        0 & 0 & 0 & 0
+    \end{pmatrix}
+    $$
+    Because of the zero row, we find that the vectors only span a plane in $\mathbb{R}^3$.
+    
+    \item[3b)] No, vectors ${\textbf{v}}_1$, ${\textbf{v}}_2$, ${\textbf{v}}_3$, and ${\textbf{v}}_4$ are not linearly independent. If we use Definition 2.18 from the textbook: vectors ${\textbf{v}}_1 + \dots + {\textbf{v}}_k$ are linearly dependent if there are scalars ${c}_1 + \dots + {c}_k$ not all zero such that ${c}_1{\textbf{v}_1} + \dots {c}_k{\textbf{v}_k} = \textbf{0}$, we find that the rref in 3a shows us that we have two free variables ${c}_3$ and ${c}_4$ which can be any value. Because of that, we have many solutions to our equation making the vectors linearly dependent.   
+    \item[3c)] No, vectors ${\textbf{v}}_1$, ${\textbf{v}}_2$, ${\textbf{v}}_3$, and ${\textbf{v}}_4$ do not form a basis in $\mathbb{R}^3$. To form a basis in $\mathbb{R}^3$, the vectors have to span $\mathbb{R}^3$, but have to also be linearly independent. Since the vectors span $\mathbb{R}^3$, but aren't linearly independent, they do not form a basis in $\mathbb{R}^3$. \\ We can choose a subset by discarding our linearly dependent vectors. In this case, ${\textbf{v}}_3$ and ${\textbf{v}}_4$ will be discarded while ${\textbf{v}}_1$ and ${\textbf{v}}_2$ will be used to form our basis. We get a basis in $\mathbb{R}^2$.
+    
+    \item[3d)] The dimension of the span of ${\textbf{v}}_1$, ${\textbf{v}}_2$, ${\textbf{v}}_3$ is 2. From 3c, we found that the vectors form a basis in $\mathbb{R}^2$. After eliminating all the linearly dependent vectors, we end up with two linearly independent vectors that span a plane in $\mathbb{R}^3$ which is in 2 dimensions.
+\end{enumerate}
+\end{document}

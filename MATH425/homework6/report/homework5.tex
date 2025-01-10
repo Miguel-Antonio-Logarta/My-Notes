@@ -1,0 +1,185 @@
+\documentclass{article}
+
+\usepackage{fancyhdr}
+
+\usepackage{textcomp}
+\usepackage{enumitem}
+\usepackage{amsthm, amssymb,amsmath}
+\usepackage{graphicx}
+\usepackage{tabto}
+\title{MATH 425 Fall 2024 Homework 6}
+\date{Due: Saturday November 30, 2024}
+\author{Miguel Antonio Logarta}
+
+\pagestyle{fancy}
+
+\fancyhead[L]{Math 425 Homework 6}  % Left side of the header
+\fancyhead[C]{Fall 2024}  % Center of the header
+\fancyhead[R]{Due: Saturday November 30, 2024}  % Right side of the header (current date)
+
+
+\newcommand\aug{\fboxsep=-\fboxrule\!\!\!\fbox{\strut}\!\!\!}
+
+\begin{document}
+
+
+\maketitle  % This command generates the title page.
+\thispagestyle{fancy}
+
+\begin{enumerate}
+    \item[1a)] If $\lambda$ is an eigenvalue of A, then $A\textbf{v} = \lambda \textbf{v}$. 
+    To show that $c\lambda + d$ and  is an eigenvalue of B where $B = cA + dI$, substite B then\\
+                % $$B\textbf{v} = \lambda \textbf{v}$$
+                $$B\textbf{v} = (cA + dI)\textbf{v}$$
+                $$B\textbf{v} = cA\textbf{v} + dI\textbf{v}$$
+                Substitute $A\textbf{v}$ with $\lambda \textbf{v}$ since $A\textbf{v} = \lambda\textbf{v}$
+                $$B\textbf{v} = c(A\textbf{v}) + dI\textbf{v}$$
+                $$B\textbf{v} = c\lambda \textbf{v} + dI\textbf{v}$$
+                $$B\textbf{v} = (c\lambda + dI)\textbf{v}$$
+    We can see that matrix B operates on eigenvector \textbf{v} that results in \textbf{v} scaled by some value $(c\lambda + dI)$. From this, we observe that $c\lambda + d$ is indeed an eigenvalue of B.
+
+    \item[1b)] Using proof by induction, we first start out with the base case k=0, $A\textbf{v} = \lambda\textbf{v}$. 
+    Next, to prove that $\lambda^2$ is an eigenvalue of $A^2$...
+                $$A^2\textbf{v} = AA\textbf{v}$$
+                Subsitute $A\textbf{v}$ with $\lambda \textbf{v}$ since $A\textbf{v} = \lambda\textbf{v}$
+                $$AA\textbf{v} = A(A\textbf{v}) = A\lambda\textbf{v}$$
+                Rearrange terms and subsite $A\textbf{v}$ again 
+                $$A\lambda\textbf{v} = \lambda(A\textbf{v}) = \lambda(\lambda\textbf{v}) = \lambda^2\textbf{v}$$
+    This shows that $\lambda ^2$ is an eigenvalue of $A^2$. Proceeding with the k terms, we get:
+    $$k = 2, \;A^2\textbf{v} = A(A\textbf{v}) = A\lambda \textbf{v} = \lambda(A\textbf{v}) = \lambda^2\textbf{v}$$
+    $$k = 3, \;A^3\textbf{v} = A(AA\textbf{v}) = A\lambda^2 \textbf{v} = \lambda^2(A\textbf{v}) = \lambda^3\textbf{v}$$
+    $$\vdots$$
+    $$k = k, \;A^k\textbf{v} = A(A^{k-1}\textbf{v}) = A(\lambda^{k-1} \textbf{v}) = \lambda^{k-1}(A\textbf{v}) = \lambda^{k-1}\lambda\textbf{v} = \lambda^k\textbf{v}$$
+    This shows that $\lambda ^k$ is an eigenvalue of $A^k$. 
+    \item[1c)] $Av = \lambda v$. If we let $\lambda = 0$, we get the equation $Av = 0$. Since v is not a zero vector, A must have a non-trivial kernel (There is a non-zero vector in A that causes v to be in the nullspace) which makes A a singular matrix.
+    \item[1d)] $A = \begin{pmatrix}1 & 1 & \dots & 1 \\ \vdots & \vdots & \ddots &\vdots \\ 1 & 1 & \dots & 1\end{pmatrix}$
+                $$Av = \lambda v$$
+                $$
+                    \begin{pmatrix}1 & 1 & \dots & 1 \\ \vdots & \vdots & \ddots &\vdots \\ 1 & 1 & \dots & 1\end{pmatrix}
+                    \begin{pmatrix}v_1 \\ v_2 \\ \vdots \\ v_n\end{pmatrix}
+                    =
+                    \begin{pmatrix}\lambda v_1 \\ \lambda v_2 \\ \vdots \\ \lambda v_n\end{pmatrix} 
+                $$
+                $$
+                    \begin{pmatrix}
+                        v_1 + v_2 + \dots + v_n \\
+                        v_1 + v_2 + \dots + v_n \\
+                        \vdots \\
+                        v_1 + v_2 + \dots + v_n
+                    \end{pmatrix}
+                    =
+                    \begin{pmatrix}\lambda v_1 \\ \lambda v_2 \\ \vdots \\ \lambda v_n\end{pmatrix} 
+                $$
+                $$
+                    \begin{pmatrix}
+                        v_1 + v_2 + \dots + v_n \\
+                        0 \\
+                        \vdots \\
+                        0
+                    \end{pmatrix}
+                    =
+                    \begin{pmatrix}\lambda v_1 \\ \lambda v_2 - \lambda v_1 \\ \vdots \\ \lambda v_n - \lambda v_1\end{pmatrix} 
+                $$
+            To find our first eigenvalue, we see that our matrix A does not have full rank, meaning that it is a singular matrix. A singular matrix has a zero eigenvalue $\lambda = 0$.
+            Plugging that eigenvalue, we get $Av = 0v$, which results in our eigenvector being $v_1 + v_2 + \dots + v_n = 0$ 
+
+            To find our other eigenvalue, we can observe that we have $n-1$ free variables. If we set variables $v_2, \dots, v_n$ to be equal to $\lambda v_1$, we get 
+            $$v_1 + v_2 + \dots + v_n = \lambda v_1$$
+            $$v_1 + (\lambda v_2) + \dots + (\lambda v_n) = \lambda v_1$$
+            $$nv_1 = \lambda v_1$$
+            $$\lambda = n$$
+
+            The eigenvector corresponding to $\lambda = n$ is $\begin{pmatrix}
+                1 \\ 1 \\ \vdots \\ 1
+            \end{pmatrix} $
+            % \item[1d)] When you multiply A with vector v, you end up with a matrix v1 + v2 + ... + vn. with the right side being lambda v1, lambda v2, ..., lambda vn. Using gaussian elimination, you find that you have n - 1 free variables. From there, you can find two solutions. 1 is lamba = 0 since A is singular there exists a solution where the eigenvalue is 0. Next, if you try to solve the equation, you set each free variable to be equal to lambda v1. You will find that the solution is v1 + (lambda*v1)*(n-1) = lambda v1. Solving for lambda yields lambda = n.
+    %             The resulting eigenvectors are [0....0]^T and [1, 1, 1, 1...1]^T
+    \item[1e)] Since A is a nonsingular matrix, it is invertible, we proceed with
+                $$A\textbf{v} = \lambda \textbf{v}$$
+                $$AA^{-1}\textbf{v} = \lambda A^{-1}\textbf{v}$$
+                $$\textbf{v} = \lambda A^{-1}\textbf{v}$$
+                Since $\lambda$ is a scalar,
+                $$\frac{1}{\lambda}\textbf{v} = A^{-1}\textbf{v}$$ 
+                $$\lambda^{-1}\textbf{v} = A^{-1}\textbf{v}$$
+            Which shows that $\lambda^{-1}$ is an eigenvalue of $A^{-1}$
+    \item[2a)] The rank of A is rank 1 because it is a product of \textbf{u} and \textbf{u} itself. A squishes all the vectors it operates on into a subspace that spans a line. To get our eigenvalues, we first substitue A
+                $$Av = uu^T = u(u^Tv)$$
+            If we pick v to equal u, we get
+                $$Au = u(u^Tu) = u$$
+                Since $u^Tu = 1$. 
+                $$u = \lambda v = \lambda u $$
+                $$\lambda = 1$$
+            To get a zero eigenvalue, we can pick v to be an orthogonal vector to u. This causes $u^Tv = 0$
+                $$Av = u(u^Tv) = 0$$
+                $$\lambda = 0$$
+            In the end, our eigenvectors for A are $\lambda = 0$ and $\lambda = 1$
+    \item[2b)] 
+            To find the eigenvectors of our Householder matrix, we can first pick a unit vector u so that:
+                $$Hu = \lambda u$$
+                $$Hu = (I - 2uu^T)u = u - 2(uu^T)u = u - 2u(u^Tu) = \lambda u$$
+                Since $u^Tu = 1$, 
+                $$Hu = u - 2u = -u = \lambda u$$
+                $$-u = \lambda u$$
+                $$\lambda  = -1$$
+            If we pick a vector v that is orthogonal to u, we get:
+                $$Hv = \lambda v$$
+                $$Hv = (I - 2uu^T)v = v - 2(uu^T)v = v - 2u(u^Tv) = \lambda v$$
+                Since v is orthogonal to u, $u^Tv = 0$, 
+                $$Hv = 0 = \lambda v$$
+                $$\lambda  = 0$$
+            In the end, our eigenvectors for A are $\lambda = -1$ and $\lambda = 0$
+    \item[2c)] A projection matrix has a property in which it is idempotent meaning that $P^2 = P$. \\
+            To find the eigenvalues we substitute $P$ in $P\textbf{v} = \lambda \textbf{v}$ with $P^2$ then:
+                $$P^2v = P(Pv) = P(\lambda v) = \lambda Pv$$
+                $$\lambda Pv = \lambda(Pv) = \lambda(\lambda v) = \lambda^2 v$$
+            Next:
+                $$P^2 = P$$
+                $$\lambda^2v = \lambda v$$
+                $$\lambda^2 = \lambda$$
+                $$\lambda^2 - \lambda = 0$$
+                $$\lambda(1 - \lambda) = 0$$
+                $$\lambda = 0, \lambda = 1$$
+    \item[3)] To find the eigenvalues of the matrix, we use the characteristic equation $|A - \lambda I| = 0$ and find the the determinant.
+                $$det\begin{pmatrix}-\lambda & c & -b \\ -c & -\lambda & a\\ b & -a & -\lambda\end{pmatrix} = 0$$
+                $$
+                    -\lambda\cdot det\begin{pmatrix}-\lambda & a \\ -a & -\lambda\end{pmatrix}
+                    -c \cdot det\begin{pmatrix}-c & a \\ -b & -\lambda\end{pmatrix}
+                    -b \cdot det\begin{pmatrix}-c & -\lambda \\ b & -a\end{pmatrix}
+                    = 0
+                $$
+                $$-\lambda^3 -\lambda a^2 -\lambda b^2 -\lambda c^2 = 0$$
+                $$-\lambda(\lambda^2+(a^2+b^2+c^2)) = 0$$
+                $$\lambda = 0, \lambda = \sqrt{a^2+b^2+c^2}, \lambda = -\sqrt{a^2+b^2+c^2}$$
+            Since A is a 3x3 matrix with 3 distinct eigenvalues, it has a multiplicity of 1. As a result, A is diagonalizable.
+    
+    \item[4)] Using the spectral theorem, we can construct a real matrix using $A = S\Lambda S^{-1}$ where S contains our eigenvectors, while $\Lambda$ is a diagonal matrix containing our eigenvalues.
+            We obtain a real matrix A=
+            $$
+            \begin{pmatrix}
+                -1 & 2 & 0 \\
+                1 & -1 & 1 \\
+                0 & 1 & 3 
+            \end{pmatrix}
+            \begin{pmatrix}
+                0 & 0 & 0 \\
+                0 & 2 & 0 \\
+                0 & 0 & -2 
+            \end{pmatrix}
+            \begin{pmatrix}
+                -1 & 2 & 0 \\
+                1 & -1 & 1 \\
+                0 & 1 & 3 
+            \end{pmatrix}^T
+            = 
+            \begin{pmatrix}
+                8  &  -4  &   4  \\
+                -4  &   0  &  -8 \\
+                4  &  -8  & -16 \\
+            \end{pmatrix}
+            $$
+    % \item[5a)] 
+    % \item[5b)] 
+    % \item[5c)] 
+    % \item[6)] 
+\end{enumerate}
+\end{document}

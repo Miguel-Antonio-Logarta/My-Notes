@@ -1,0 +1,92 @@
+\documentclass{article}
+
+\usepackage{fancyhdr}
+
+\usepackage{textcomp}
+\usepackage{enumitem}
+\usepackage{amsthm, amssymb,amsmath}
+\usepackage{graphicx}
+\usepackage{tabto}
+\title{MATH 425 Fall 2024 Homework 5}
+\date{Due: Saturday November 9, 2024}
+\author{Miguel Antonio Logarta}
+
+\pagestyle{fancy}
+
+\fancyhead[L]{Math 425 Homework 5}  % Left side of the header
+\fancyhead[C]{Fall 2024}  % Center of the header
+\fancyhead[R]{Due: Saturday November 9, 2024}  % Right side of the header (current date)
+
+
+\newcommand\aug{\fboxsep=-\fboxrule\!\!\!\fbox{\strut}\!\!\!}
+
+\begin{document}
+
+
+\maketitle  % This command generates the title page.
+\thispagestyle{fancy}
+
+\begin{enumerate}
+    \item[1)] 
+    Unfortunately, it seems that there seems to be no solution. I found that the vectors $\begin{pmatrix} 1 \\ 2 \\ -1 \\0 \end{pmatrix},  \,\, \begin{pmatrix} 0 \\ 1 \\ -2 \\ -1 \end{pmatrix}, \,\,  \begin{pmatrix} 1 \\ 0 \\ 3 \\ 2 \end{pmatrix}$ which span the subspace are linearly dependent which is  preventing me from finding closest point $\textbf{x}^*$. When we try to solve for \textbf{x} in $K\textbf{x}=\textbf{f}$, I found that $K$ does not have an inverse since det(K) = 0, which means K is a singular matrix. \\
+
+    However, I can pick a subspace in which the vectors are linearly independent. Using MATLAB, I called rref(A) and found that I can discard the last vector $\begin{pmatrix} 1 \\ 0 \\ 3 \\ 2 \end{pmatrix}$ to get a set of linearly independent vectors, $\begin{pmatrix} 1 \\ 2 \\ -1 \\0 \end{pmatrix},  \,\, \begin{pmatrix} 0 \\ 1 \\ -2 \\ -1 \end{pmatrix}$. K is now a nonsingular matrix which gives me the following result.
+    $$\textbf{x}^* = \begin{pmatrix} 0.5 \\ 0.5 \\ 0.5 \\ 0.5 \end{pmatrix} \text{is the closest point}$$
+
+    \item[2)] There are two ways to find the least squares solution: \\
+    
+    Way 1: Closest Point Solution \\
+    $K\textbf{x} = \textbf{f}, \textbf{x}^* = K\textbf{f}$ \\
+    $K = A^TA$, $\textbf{f} = A^T\textbf{b}$
+
+    Using MATLAB, I got the solution: $$\textbf{x}^* = \begin{pmatrix} -1 \\ 2 \\ 3 \end{pmatrix} \text{is the least squares solution}$$
+
+    Way 2: Orthonormalize A using the gram-schmidt process, then use orthogonal projection formula (e.q. 4.41 from the textbook)
+    $$\textbf{w} = c_1 \textbf{u}_1 + \dots + c_n \textbf{u}_n \text{ where } c_i = <\textbf{v}, \textbf{u}_i>, i = 1, \dots, n$$
+    
+    Using MATLAB, I got the solution:
+    $$\textbf{x}^* = \begin{pmatrix} 0 \\ 5 \\ 6 \\ 8 \end{pmatrix} \text{is the least squares solution}$$
+    This answer was definitely unexpected, and I am not sure how I arrived at this conclusion.
+
+    \item[3)] Our least squares line will have the form $y = Mx + B$. To find the least squares line, need to find $\textbf{x}^*$. \\ $K\textbf{x} = \textbf{f}, \textbf{x}^* = K\textbf{f}$ \\
+    $K = A^TA$, $\textbf{f} = A^T\textbf{b}\\$I set A and b to be: 
+    $$
+    A = \begin{pmatrix}
+        1 & 1989 \\
+        1 & 1990 \\
+        \vdots & \vdots \\
+        1 & 1999 \\
+    \end{pmatrix}, 
+    A^T = \begin{pmatrix}
+        1 & 1 & \dots & 1 \\
+        1989 & 1990 & \dots & 1999
+    \end{pmatrix}
+    \textbf{b} = \begin{pmatrix}
+    86.4 \\ \vdots 
+
+    \\
+    89.8 \\ 129.5 \end{pmatrix} 
+    \textbf{x} = \begin{pmatrix}
+        B \\ M
+    \end{pmatrix}
+    $$
+    Using MATLAB, I got the the value $$\textbf{x}^* = \begin{pmatrix}
+        -7717.7 \\ 3.9227
+    \end{pmatrix}$$ Which gives the the line $$y(t) = 3.9227t -7717.7$$
+
+    Assuming that the trend continues, the housing prices for 2005 and 2010 will be:
+    $$y(2005) = 3.9227(2005)-7717.7 = 147.4$$
+    $$y(2010) = 3.9227(2005)-7717.7 = 167.0$$
+    \item[4d)]
+    $$p(x) = p_1(x) + ip_2(x) = (10.7949cos(0x)-(0.0000)sin(0x)) + i(10.7949sin(0x)+0.0000cos(0x)) + $$ 
+$$(-0.3613cos(1x)-(5.9568)sin(1x)) + i(-0.3613sin(1x)+5.9568cos(1x)) + $$
+$$(-1.8506cos(2x)-(2.4674)sin(2x)) + i(-1.8506sin(2x)+2.4674cos(2x)) + $$
+$$(-2.1061cos(3x)-(1.0220)sin(3x)) + i(-2.1061sin(3x)+1.0220cos(3x)) + $$
+$$(-2.1590cos(4x)-(0.0000)sin(4x)) + i(-2.1590sin(4x)+0.0000cos(4x)) + $$
+$$(-2.1061cos(5x)-(1.0220)sin(5x)) + i(-2.1061sin(5x)+1.0220cos(5x)) + $$
+$$(-1.8506cos(6x)-(2.4674)sin(6x)) + i(-1.8506sin(6x)+2.4674cos(6x)) + $$
+$$(-0.3613cos(7x)-(5.9568)sin(7x)) + i(-0.3613sin(7x)+5.9568cos(7x))$$
+    Removing all the imaginary terms leaves us with: \\
+    $p_1(x) = 10.7949-0.3613cos(1x)-5.9568sin(1x)-1.8506cos(2x)-2.4674sin(2x)-2.1061cos(3x)-1.0220sin(3x)-2.1590cos(4x)-2.1061cos(5x)-1.0220sin(5x)-1.8506cos(6x)-2.4674sin(6x)-0.3613cos(7x)-5.9568sin(7x)$
+\end{enumerate}
+\end{document}

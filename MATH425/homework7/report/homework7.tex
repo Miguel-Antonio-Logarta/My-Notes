@@ -1,0 +1,94 @@
+\documentclass{article}
+
+\usepackage{fancyhdr}
+
+\usepackage{textcomp}
+\usepackage{enumitem}
+\usepackage{amsthm, amssymb,amsmath}
+\usepackage{graphicx}
+\usepackage{tabto}
+\title{MATH 425 Fall 2024 Homework 7}
+\date{Due: Saturday December 14, 2024}
+\author{Miguel Antonio Logarta}
+
+\pagestyle{fancy}
+
+\fancyhead[L]{Math 425 Homework 7}  % Left side of the header
+\fancyhead[C]{Fall 2024}  % Center of the header
+\fancyhead[R]{Due: Saturday December 14, 2024}  % Right side of the header (current date)
+
+
+\newcommand\aug{\fboxsep=-\fboxrule\!\!\!\fbox{\strut}\!\!\!}
+
+\begin{document}
+
+
+\maketitle  % This command generates the title page.
+\thispagestyle{fancy}
+
+\begin{enumerate}
+    \item[1)] Since we know that A is nonsingular, that means that A is invertible. We can solve the system of linear equations $A\textbf{x} = \textbf{b}$ by multiplying both sides by $A^{-1}$ to get $\textbf{x} = A^{-1} \textbf{b}$. \\
+            The SVD of A is the equation $A = P\Sigma Q^T$. To get $A^{-1}$ we take the inverse of the SVD:
+            $$A^{-1} = (P \Sigma Q^T)^{-1}$$ 
+            $$A^{-1} = (Q^T)^{-1} \Sigma^{-1} P^{-1}$$ 
+            From the SVD, we know that the matrices P and Q and orthogonal. The tranpose of an orthogonal matrix is the same as its inverse so $P^T = P^{-1}$ and $Q^T = Q^{-1}$
+            $$A^{-1} = (Q^{-1})^{-1} \Sigma^{-1} P^T$$ 
+            $$A^{-1} = Q \Sigma^{-1} P^T$$ 
+            The diagonal matrix $\Sigma^{-1}$ containing our singular values looks like $\begin{pmatrix}
+                \frac{1}{\sigma_1} & & & \\
+                & \frac{1}{\sigma_2} & &  \\
+                & & \ddots & \\
+                & & & \frac{1}{\sigma_n}
+            \end{pmatrix}$. A being nonsingular is important, because it means it has full rank. When A has full rank it means that A has no eigenvalues that are equal to zero. And since $\sigma_i = \sqrt{\lambda_i}$, if there exists $\lambda = 0$, then that would make $\Sigma^{-1}$ impossible since we would be dividing by 0. 
+
+    \item[2)] They are related because the singular values of A ($\sigma_1, \sigma_2, ..., \sigma_r, $) are reciprocated in $A^{-1}$ ($\frac{1}{\sigma_1}, \frac{1}{\sigma_2}, ..., \frac{1}{\sigma_n}$). Since A is nonsingular, it forces the singular values $\sigma_i > 0$, meaning the eigenvalues of the associated gram matrix $A^TA$ to be greater than 0.
+    \item[3a)] $$tr(BC) = tr(\begin{pmatrix}
+        b_{11} & ... & b_{1r} \\
+        \vdots & \ddots & \vdots \\
+        b_{p1} & ... &  b_{pr} \\
+    \end{pmatrix}\begin{pmatrix}
+        c_{11} & ... & c_{1p} \\
+        \vdots & \ddots & \vdots \\
+        c_{r1} & ... &  c_{rp} \\
+    \end{pmatrix}) $$
+                $$= (b_{11}c_{11} + b_{12}c_{21} + ... + b_{1r}c_{r1}) + $$$$ (b_{21}c_{12} + b_{22}c_{22} + ... + b_{2r}c_{r2}) + ... + $$$$ (b_{p1}c_{1p} + ... + b_{pr}c_{rp})$$
+                $$= \sum_{j=1}^{r} \sum_{i=1}^{p} b_{pr}c_{rp} $$
+                Swapping out B and C will achieve the same result since it gives us the same terms
+                $$tr(CB) = \sum_{i=1}^{p} \sum_{j=1}^{r} c_{rp}b_{pr} = \sum_{j=1}^{r} \sum_{i=1}^{p} b_{pr}c_{rp}$$
+
+    \item[3b)] $||A||^2 = trace(AA^T) = trace(A^TA)$, and $||A|| \sqrt{\sum_{j=1}^n \sum_{i=1}^m a_{ij}^2}$.
+                $$ trace(AA^T) = trace(\begin{pmatrix}
+                    a_{11} & ... & a_{1j} \\
+                    \vdots & \ddots & \vdots \\
+                    a_{i1} & ... &  a_{ij} \\
+                \end{pmatrix}\begin{pmatrix}
+                    a_{11} & ... & a_{i1} \\
+                    \vdots & \ddots & \vdots \\
+                    a_{1j} & ... &  a_{ji} \\
+                \end{pmatrix})$$
+                $$= (a_{11}a_11 + a_{12}a_12 + ...) + (a_{21}a_21 + a_{22}a_22 + ...)$$
+                $$= \sum_{i=1}^{m} \sum_{j=1}^{n} a_{ij}a_{ij} $$
+                $$= \sum_{i=1}^{m} \sum_{j=1}^{n} a_{ij}^2 = ||A||^2 $$
+
+                Since we proved in 2) that $tr(BC) = tr(CB)$, we can also say that $tr(AA^T) = tr(A^TA)$
+
+
+    \item[3c)] Proof that $||UA|| = ||A||$ \\
+    We know that $\sqrt{\sum_{j=1}^n \sum_{i=1}^m a_{ij}^2}$, $tr(AA^T) = tr(A^TA) = ||A||^2$, and that U is orthogonal meaning $U^T = U^{-1}$ and $U^TU = 1$
+    $$||A|| = \sqrt{tr(AA^T)} = \sqrt{tr(A^TA)}$$
+    $$||UA|| = \sqrt{tr((UA)^T(UA))} = \sqrt{tr(A^TU^TUA)} = $$
+    $$\sqrt{tr(A^TA)} = \sqrt{\sum_{j=1}^n \sum_{i=1}^m a_{ij}^2} = ||A||$$
+    
+
+    \item[3d)] We know that $||A|| = \sqrt{tr(AA^T)}$ and $A = {P \Sigma Q^T}$
+                $$||A||^2 = tr(AA^T) = tr(P \Sigma Q^T (P \Sigma Q^T)^T) = tr(P \Sigma Q^T Q\Sigma^TP^T)$$
+                $$ = tr(P\Sigma\Sigma^TP^T)$$
+                Using $tr(BC) = tr(CB)$, we can swap the matrices around
+                $$= tr((P\Sigma)(\Sigma^TP^T))$$
+                $$= tr((\Sigma^TP^T)(P\Sigma))$$
+                $$= tr(\Sigma^TP^TP\Sigma) = tr(\Sigma^T\Sigma) = tr(\Sigma\Sigma^T) = \sum_{i=1}^{r} \sigma^2_r = ||A||^2$$
+                Taking the square root gives us A
+                $$||A|| = \sqrt{\sum_{i=1}^{r} \sigma^2_r} = \sqrt{\sigma_1^2 + \sigma_2^2 + \cdots + \sigma_r^2}$$
+    
+\end{enumerate}
+\end{document}
